@@ -1,7 +1,178 @@
+@import "./modules/_normalize";
 @import "./modules/_variables";
-BODY{
-    color: $testvar;
-    font-family: "Helvetica",sans-serif;
-    font-size: 16px;
+
+@mixin pagerootstyles {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+BODY{
+    background-color: $main_backgroundcolor;
+    color: $main_textcolor;
+    font-family: "Raleway","Helvetica",sans-serif;
+    font-size: 16px;
+    @include pagerootstyles();
+
+    P{
+        line-height: 1.35em;
+    }
+    .bold{
+        font-weight: bold;
+    }
+}
+
+.component-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @media screen and (min-width:$width_ipad){
+        flex-wrap: nowrap;
+    }
+    margin-left: -$main_gutter/2;
+    margin-right: -$main_gutter/2;
+    .component-col-6{
+        width: 100%;
+        @media screen and (min-width:$width_ipad){
+            width: 50%; 
+        }
+        padding: $main_gutter/2;
+        //outline: 1px dotted black;
+    }
+}
+
+.wrapper{
+    max-width: 1200px;
+    padding: 0 calc(0.5em + 10vw);
+    @media screen and (min-width: $width_ipad) {
+        padding: 0 $main_gutter*2;
+    }
+    width: 100vw;
+}
+
+.header{
+    @include pagerootstyles();
+    padding: 4rem 0 0;
+    &__main{
+        font-size: calc(2rem + 1vw);
+        @media screen and (min-width:$width_iphone4) {
+            font-size: calc(2rem + 3vw);
+        }
+        @media screen and (min-width:$width_ipad) {
+            font-size: 4rem;
+        }
+        P{
+            margin: 0;
+        }
+    }
+    &__teaser{
+        font-size: calc(1rem + 0.5vw);
+        @media screen and (min-width:$width_iphone4) {
+            font-size: calc(1rem + 2vw);
+        }
+        @media screen and (min-width:$width_ipad) {
+            font-size: 2rem;
+        }
+    }
+}
+
+.personal{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media screen and (min-width:1200px) {
+        flex-wrap: nowrap
+    }
+    &__image{
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-size: contain;
+        width: 15rem;
+        height: 15rem;
+    }
+    &__details{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        @media screen and (min-width:1200px){
+            max-width: 50%;
+        }
+        &__name{
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        &__title{
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        &__icon{
+            background-color: $main_textcolor;
+            color: $main_backgroundcolor;
+            padding: 0.5rem;
+            border-radius: 50%;
+            margin: 0 0.5rem 0.5rem 0;
+            display: inline-block;
+        }
+    }
+}
+
+.desc{
+    &__header{
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    &__image{
+        width: 100%;
+        padding-top: 56.25%;
+        max-height: 275px;
+        background-color: #ccc;
+        background-size: cover;
+    }
+    &__desc{
+        flex-grow: 1;
+        padding: $main_gutter/2;
+        background-color: #fff;
+        overflow: hidden;
+        margin-top: 1px;
+        &__header{
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+    &__tech{
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.75rem;
+        padding: $main_gutter/4 $main_gutter/2;
+        background-color: #fff;
+        margin: 1px 0 0 0;
+        LI:not(.card__tech__header){
+            background-color: transparent;
+            border:1px solid #ccc;
+            color: #666;
+            padding: 4px 8px 3px;
+            border-radius: 12px;
+            //font-weight: bold;
+            margin: 1px;
+        }
+        &__header{
+            font-weight: bold;
+            padding: 4px 8px 3px 0;
+            margin: 1px;
+        }
+    }
+}
