@@ -9,33 +9,42 @@
     </head>
     <body>
 
-        <header class="header">
-            <div class="wrapper">
-                <div class="header__main">
-                    <p>Hello,</p>
-                    <p>my name is Morten</p>
-                </div>
-                <p class="header__teaser">For more than a decade, I have been developing advanced yet easily maintainable frontend solutions for the web.</p>
-            </div>
-        </header>
-
         <div class="wrapper">
             <div class="component-row">
+                <div class="component-col-12">
+                    <header class="header">
+                    
+                            <div class="header__main">
+                                <p>Hello,</p>
+                                <p>my name is Morten</p>
+                            </div>
+                            <p class="header__teaser">For more than a decade, I have been developing advanced yet easily maintainable frontend solutions for the web.</p>
+                    
+                    </header>
+                </div>
+            </div>
+
+        
+            <div class="component-row">
                 
-                    <article class="component-col-6 personal" 
-                        aria-label="Personal details and contact information">
+                    <section class="component-col-4 personal ipad50">
 
                         <div class="personal__image" 
                             style="background-image:url(img/morten-photo.jpg)" 
                             aria-label="Photo of Morten Kozak Fischer, Senior Frontend Developer">
                         </div>
+                    </section>
 
+                    <section class="component-col-4 personal borders ipad50">
                         <ul class="personal__details">
                             <li>
                                 <h1 class="personal__details__name">Morten Kozak Fischer</h1>
                             </li>
                             <li>
-                                <h2 class="personal__details__title">Senior Frontend Developer at Capgemini Denmark A/S</h2>
+                                <h2 class="personal__details__title">
+                                    <p>Senior Frontend Developer</p>
+                                    <p> at Capgemini Denmark A/S</p>
+                                </h2>
                             </li>
                             <li>
                                 <span class="icon icon-phone personal__details__icon" aria-hidden="true"></span> 
@@ -50,17 +59,40 @@
                                 <a href="https://www.linkedin.com/in/mortenkozakfischer/" aria-label="LinkedIn profile link">mortenkozakfischer</a>
                             </li>
                         </ul>
-                    </article>
+                    </section>
 
+                    <section class="component-col-4 personal ipad100">
+                        <ul class="personal__skills">
+                            <li>JavaScript</li>
+                            <li>Vue.js</li>
+                            <li>React.js</li>
+                            <li>Webpack/Grunt</li>
+                            <li>SCSS</li>
+                            <li>WCAG/Accessibility</li>
+                            <li>UI/UX</li>
+                            <li>Design</li>
+                        </ul>
+                    </section>
+                    
+            </div>
+            <div class="component-row">
 
-                    <article class="component-col-6 desc">
+                    <section class="component-col-12 desc">
                         <h3 class="desc__header">Description</h3>
                         <p>
-                                Front-end developer with a background in graphic design and 10 years worth of experience in creating working interactive solutions from others or own great ideas.
+                                Microsoft Certified Frontend developer with a background in graphic design.
+
+10 years of experience in creating working interactive solutions.
+
+Over the years I have worked with all stages of a project within Frontend Development. Examples of this are visual design, responsive design and technical builds to work on different screen sizes, interface creation, framework creation, and also as team lead. All in collaboration with stakeholders, other designers/teams and clients. On a frontend scene that can be considered fast moving and very technical, my starting point has always been to work with the end goal as foundation for the technology choice made.
+
+Originally educated in design and production, I naturally work with a close eye on business/project goals while keeping the end users experiences close to heart. I work passionately in making often static layouts becoming living responsive interactive experiences, that works well across browsers and screens.
+
+As an experienced developer I realise the importance of writing compliant code and markup that is maintainable and readable by my peers. Writing well structured hand written code I strive to minize the amount of code delivered to the browser, and by writing sensible documentation and appropriate code-comments I guide others through my code and markup - allowing for easy handovers and future editing.
                         </p>
                         <h3 class="desc__header">Core skills</h3>
                         <p>Javascript - Vue.js - React.js - Webpack/Grunt - WCAG/Accessibility - SCSS/CSS - UI & UX - Design</p>
-                    </article>
+                    </section>
                 
             </div>
 

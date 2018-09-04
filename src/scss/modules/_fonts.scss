@@ -1,19 +1,19 @@
 $icomoon-font-family: "mkf" !default;
 $icomoon-font-path: "/fonts" !default;
 
+$icon-cross: "\ea0f";
+$icon-checkmark: "\ea10";
 $icon-phone: "\e942";
 $icon-bubble: "\e96b";
 $icon-facebook: "\ea90";
 $icon-linkedin2: "\eaca";
 
-
-
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?5co6o9') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?5co6o9') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?5co6o9##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?qhlr02') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?qhlr02') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?qhlr02##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -33,6 +33,17 @@ $icon-linkedin2: "\eaca";
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.icon-cross {
+  &:before {
+    content: $icon-cross; 
+  }
+}
+.icon-checkmark {
+  &:before {
+    content: $icon-checkmark; 
+  }
+}
 .icon-phone {
   &:before {
     content: $icon-phone; 

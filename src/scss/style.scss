@@ -2,18 +2,20 @@
 @import "./modules/_variables";
 
 @mixin pagerootstyles {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 BODY{
+    box-sizing: border-box;
     background-color: $main_backgroundcolor;
     color: $main_textcolor;
     font-family: "Raleway","Helvetica",sans-serif;
     font-size: 16px;
     @include pagerootstyles();
+    width: auto;
 
     P{
         line-height: 1.35em;
@@ -27,11 +29,15 @@ BODY{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
     @media screen and (min-width:$width_ipad){
         flex-wrap: nowrap;
+           
     }
-    margin-left: -$main_gutter/2;
-    margin-right: -$main_gutter/2;
+    .component-col-12{
+        width: 100%;
+        padding: $main_gutter/2;
+    }
     .component-col-6{
         width: 100%;
         @media screen and (min-width:$width_ipad){
@@ -40,20 +46,28 @@ BODY{
         padding: $main_gutter/2;
         //outline: 1px dotted black;
     }
+    .component-col-4{
+        width: 100%;
+        @media screen and (min-width:$width_ipad){
+            width: 33.333%; 
+        }
+        padding: $main_gutter/2;
+        //outline: 1px dotted black;
+    }
 }
 
 .wrapper{
     max-width: 1200px;
-    padding: 0 calc(0.5em + 10vw);
-    @media screen and (min-width: $width_ipad) {
-        padding: 0 $main_gutter*2;
+    
+    @media screen and (min-width: $width_iphone4) {
+        padding: 0 calc(0.5em + 2vw);
     }
-    width: 100vw;
+    width: 100%;
 }
 
 .header{
-    @include pagerootstyles();
-    padding: 4rem 0 0;
+    padding: 0;
+    padding-top: 1rem;
     &__main{
         font-size: calc(2rem + 1vw);
         @media screen and (min-width:$width_iphone4) {
@@ -78,11 +92,61 @@ BODY{
 }
 
 .personal{
+    &.borders{
+        @media screen and (min-width:$width_ipad){
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+    }
+    &.ipad50{
+        @media screen and (min-width:$width_ipad) {
+            width: 33%;
+            flex-shrink: 0;
+        }
+        @media screen and (min-width:550px) and (max-width:$width_ipad) {
+            width: 50%;
+            flex-shrink: 0;
+        }
+    }
+    &.ipad100{
+        @media screen and (max-width:$width_ipad) {
+            width: 100%;
+        }
+    }
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    @media screen and (min-width:1200px) {
-        flex-wrap: nowrap
+    @media screen and (min-width:$width_ipad) {
+        flex-wrap: nowrap;
+    }
+    &__skills{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        @media screen and (max-width:$width_ipad) {
+            justify-content: center;
+        }
+        LI{
+            margin: 0 1rem;
+            @media screen and (max-width:$width_ipad) {
+                margin: 0.5rem 1rem;
+            }
+            font-size: 1.35rem;
+            &::before{
+                font-family: "mkf";
+                content: "\ea10";
+                font-size: 0.75rem;
+                width: 10px;
+                height: 10px;
+                padding: 8px;
+                border-radius: 50%;
+                background-color: #ccc;
+                margin-right: 0.5rem;
+            }
+        }
     }
     &__image{
         flex-shrink: 0;
@@ -95,17 +159,16 @@ BODY{
         list-style-type: none;
         padding: 0;
         margin: 0;
-        max-width: 100%;
-        @media screen and (min-width:1200px){
-            max-width: 50%;
-        }
+        width: 100%;
         &__name{
             margin-top: 0;
             font-size: 1.5rem;
             font-weight: bold;
         }
-        &__title{
-            font-size: 1rem;
+        &__title P{
+            font-size: 1.35rem;
+            margin: 0;
+            line-height: normal;
             font-weight: normal;
         }
         &__icon{
