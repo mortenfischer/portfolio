@@ -23,6 +23,22 @@ BODY{
     .bold{
         font-weight: bold;
     }
+    A{
+        color: $main_altcolor;
+        text-decoration: none;
+        border-bottom: 1px dotted #ccc;
+        transition: border-bottom-color 0.25s ease-out,border-bottom-style 0.25s ease-out;
+        &:hover,
+        &:focus{
+            border-bottom-color: $main_altcolor;
+            //border-bottom-width: 2px;
+            border-bottom-style: solid;
+        }
+    }
+    PRE{
+        white-space: pre-line;
+        font-family: inherit;
+    }
 }
 
 .component-row{
@@ -30,9 +46,29 @@ BODY{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    .component-col-forcewrap{
+        flex-wrap: wrap;
+    }
+    .component-col-smallborders{
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        @media screen and (min-width:$width_iphone4){
+            border: 1px solid #ccc;        
+        }
+        @media screen and (min-width:$width_ipad){
+            border: none;        
+        }
+    }
     @media screen and (min-width:$width_ipad){
         flex-wrap: nowrap;
            
+    }
+    &--late-nowrap{
+        flex-wrap: wrap;
+        @media screen and (min-width:$personal_break){
+            flex-wrap: nowrap;
+               
+        }
     }
     .component-col-12{
         width: 100%;
@@ -93,9 +129,9 @@ BODY{
 
 .personal{
     &.borders{
-        @media screen and (min-width:$width_ipad){
-            border-left: 1px solid #ccc;
-            border-right: 1px solid #ccc;
+        @media screen and (min-width:$personal_break){
+            //border-left: 1px solid #ccc;
+            //border-right: 1px solid #ccc;
         }
     }
     &.ipad50{
@@ -103,21 +139,58 @@ BODY{
             width: 33%;
             flex-shrink: 0;
         }
-        @media screen and (min-width:550px) and (max-width:$width_ipad) {
+        @media screen and (min-width:550px) and (max-width:$personal_break) {
             width: 50%;
             flex-shrink: 0;
         }
     }
     &.ipad100{
-        @media screen and (max-width:$width_ipad) {
+        @media screen and (max-width:$personal_break) {
             width: 100%;
         }
     }
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    @media screen and (min-width:$width_ipad) {
+    @media screen and (min-width:$personal_break) {
         flex-wrap: nowrap;
+    }
+    &__certification{
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        LI{
+            margin: 0.5rem 1rem 0.5rem 0rem;
+        }
+        LI{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        IMG{
+            width: 1.75rem;
+            margin-right: 0.5rem;
+        }
+        SPAN{
+            font-size: 1.35rem;
+        }
+        @media screen and (min-width:$personal_break) {
+            justify-content: flex-start;
+        }
+        @media screen and (max-width:$width_ipad) {
+            LI{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                SPAN{
+                    width: 100%;
+                    white-space: nowrap;
+                }
+            }
+        }
     }
     &__skills{
         margin: 0;
@@ -126,11 +199,11 @@ BODY{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        @media screen and (max-width:$width_ipad) {
+        @media screen and (max-width:$personal_break) {
             justify-content: center;
         }
         LI{
-            margin: 0 1rem;
+            margin: 0.5rem 1rem 0.5rem 0rem;
             @media screen and (max-width:$width_ipad) {
                 margin: 0.5rem 1rem;
             }
@@ -172,13 +245,37 @@ BODY{
             font-weight: normal;
         }
         &__icon{
-            background-color: $main_textcolor;
+            background-color: $main_altcolor;
             color: $main_backgroundcolor;
             padding: 0.5rem;
             border-radius: 50%;
             margin: 0 0.5rem 0.5rem 0;
             display: inline-block;
         }
+    }
+}
+
+.experience{
+    list-style-type: none;
+    margin: 0;
+    margin-left: 2rem;
+    padding: 0;
+    &__desc{
+        border-left: 5px dotted #ccc;
+        padding: 2rem;
+        position: relative;
+    }
+    &__year{
+        font-size: 2rem;
+        color: $main_altcolor;
+        top: 0;
+        position: absolute;
+        left: -2rem;
+        background-color: #eee;
+    }
+    &__text{
+        margin-top: 2rem;
+        display: block;
     }
 }
 
