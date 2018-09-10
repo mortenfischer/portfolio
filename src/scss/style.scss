@@ -38,6 +38,8 @@ BODY{
     PRE{
         white-space: pre-line;
         font-family: inherit;
+        font-size: 1.35rem;
+        line-height: 2rem;
     }
 }
 
@@ -260,6 +262,19 @@ BODY{
     margin: 0;
     margin-left: 2rem;
     padding: 0;
+    &__logo{
+        max-width: 200px;
+        max-height: 75px;
+    }
+    &__header{
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    &__employer{
+        display: block;
+        margin-top: $main_gutter/8;
+        margin-bottom: $main_gutter/8;
+    }
     &__desc{
         border-left: 5px dotted #ccc;
         padding: 2rem;
@@ -267,7 +282,7 @@ BODY{
     }
     &__year{
         font-size: 2rem;
-        color: $main_altcolor;
+        color: $main_darkgrey;
         top: 0;
         position: absolute;
         left: -2rem;
