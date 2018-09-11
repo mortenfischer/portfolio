@@ -38,8 +38,12 @@ BODY{
     PRE{
         white-space: pre-line;
         font-family: inherit;
-        font-size: 1.35rem;
-        line-height: 2rem;
+        font-size: calc(1rem + 0.5vw);
+        line-height: normal;
+        @media screen and (min-width:$width_iphone4){
+            font-size: 1.35rem;
+        }
+        
     }
 }
 
@@ -241,10 +245,13 @@ BODY{
             font-weight: bold;
         }
         &__title P{
-            font-size: 1.35rem;
             margin: 0;
             line-height: normal;
             font-weight: normal;
+            font-size: calc(1rem + 0.5vw);
+            @media screen and (min-width:$width_iphone4){
+                font-size: 1.35rem;
+            }
         }
         &__icon{
             background-color: $main_altcolor;
@@ -260,11 +267,19 @@ BODY{
 .experience{
     list-style-type: none;
     margin: 0;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     padding: 0;
+    @media screen and (min-width:$width_iphone4) {
+        margin-left: 2rem; 
+    }
+    
     &__logo{
-        max-width: 200px;
-        max-height: 75px;
+        max-width: 175px;
+        max-height: 65px;
+        @media screen and (min-width:$width_iphone4) {
+            max-width: 200px;
+            max-height: 75px;
+        }
     }
     &__header{
         font-size: 1.25rem;
@@ -276,12 +291,19 @@ BODY{
         margin-bottom: $main_gutter/8;
     }
     &__desc{
-        border-left: 5px dotted #ccc;
-        padding: 2rem;
+        border-left: 3px dotted #ccc;
+        padding: 1.5rem;
         position: relative;
+        @media screen and (min-width:$width_iphone4){
+            border-left: 5px dotted #ccc;
+            padding: 2rem;
+        }
     }
     &__year{
-        font-size: 2rem;
+        font-size: 1.5rem;
+        @media screen and (min-width:$width_iphone4){
+            font-size: 2rem;
+        }
         color: $main_darkgrey;
         top: 0;
         position: absolute;
