@@ -14,11 +14,17 @@ BODY{
     color: $main_textcolor;
     font-family: "Raleway","Helvetica",sans-serif;
     font-size: 16px;
+    @media print{
+        font-size: 13px;
+    }
     @include pagerootstyles();
     width: auto;
 
     P{
         line-height: 1.35em;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
     }
     .bold{
         font-weight: bold;
@@ -40,10 +46,44 @@ BODY{
         font-family: inherit;
         font-size: calc(1rem + 0.5vw);
         line-height: normal;
-        @media screen and (min-width:$width_iphone4){
+        @media  (min-width:$width_iphone4){
             font-size: 1.35rem;
         }
+        @media print{
+            font-size: 1rem;
+        }
         
+    }
+    ADDRESS{
+        UL{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        LI:first-of-type{
+            font-weight: bold;
+        }
+        @media screen,print and (min-width:$width_iphone4){
+            UL {
+                display: flex;
+            }
+            LI:not(:first-of-type){
+                &::before{
+                    content: ", ";
+                }
+            }
+        }
+    }
+    FOOTER{
+        margin-bottom: 5rem;
+    }
+    .hide-print{
+        @media print{
+            display: none;
+        }
+    }
+    *{
+        position: relative;
     }
 }
 
@@ -52,37 +92,47 @@ BODY{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    position: relative;
+    @media print{
+        display:block;
+    }
+    & > * {
+        @media print{
+            padding: 0;
+        }
+    }
+    &--late-nowrap{
+        flex-wrap: wrap;
+        @media  (min-width:$personal_break){
+            flex-wrap: nowrap;
+               
+        }
+    }
     .component-col-forcewrap{
         flex-wrap: wrap;
     }
     .component-col-smallborders{
         border-top: 1px solid #ccc;
         border-bottom: 1px solid #ccc;
-        @media screen and (min-width:$width_iphone4){
+        @media  (min-width:$width_iphone4){
             border: 1px solid #ccc;        
         }
-        @media screen and (min-width:$width_ipad){
+        @media  (min-width:$width_ipad){
             border: none;        
         }
     }
-    @media screen and (min-width:$width_ipad){
+    @media  (min-width:$width_ipad){
         flex-wrap: nowrap;
            
     }
-    &--late-nowrap{
-        flex-wrap: wrap;
-        @media screen and (min-width:$personal_break){
-            flex-wrap: nowrap;
-               
-        }
-    }
+    
     .component-col-12{
         width: 100%;
         padding: $main_gutter/2;
     }
     .component-col-6{
         width: 100%;
-        @media screen and (min-width:$width_ipad){
+        @media  (min-width:$width_ipad){
             width: 50%; 
         }
         padding: $main_gutter/2;
@@ -90,21 +140,28 @@ BODY{
     }
     .component-col-4{
         width: 100%;
-        @media screen and (min-width:$width_ipad){
+        @media  (min-width:$width_ipad){
             width: 33.333%; 
         }
         padding: $main_gutter/2;
         //outline: 1px dotted black;
+    }
+    .component-col--nobottompadding{
+        padding-bottom: 0;
     }
 }
 
 .wrapper{
     max-width: 1200px;
     
-    @media screen and (min-width: $width_iphone4) {
+    @media  (min-width: $width_iphone4) {
         padding: 0 calc(0.5em + 2vw);
     }
     width: 100%;
+    @media print{
+        max-width: none;
+        padding: 0;
+    }
 }
 
 .header{
@@ -112,10 +169,10 @@ BODY{
     padding-top: 1rem;
     &__main{
         font-size: calc(2rem + 1vw);
-        @media screen and (min-width:$width_iphone4) {
+        @media  (min-width:$width_iphone4) {
             font-size: calc(2rem + 3vw);
         }
-        @media screen and (min-width:$width_ipad) {
+        @media  (min-width:$width_ipad) {
             font-size: 4rem;
         }
         P{
@@ -124,10 +181,10 @@ BODY{
     }
     &__teaser{
         font-size: calc(1rem + 0.5vw);
-        @media screen and (min-width:$width_iphone4) {
+        @media  (min-width:$width_iphone4) {
             font-size: calc(1rem + 2vw);
         }
-        @media screen and (min-width:$width_ipad) {
+        @media  (min-width:$width_ipad) {
             font-size: 2rem;
         }
     }
@@ -135,30 +192,35 @@ BODY{
 
 .personal{
     &.borders{
-        @media screen and (min-width:$personal_break){
+        @media  (min-width:$personal_break){
             //border-left: 1px solid #ccc;
             //border-right: 1px solid #ccc;
         }
     }
     &.ipad50{
-        @media screen and (min-width:$width_ipad) {
+        @media  (min-width:$width_ipad) {
             width: 33%;
             flex-shrink: 0;
         }
-        @media screen and (min-width:550px) and (max-width:$personal_break) {
+        @media  (min-width:550px) and (max-width:$personal_break) {
             width: 50%;
             flex-shrink: 0;
         }
     }
     &.ipad100{
-        @media screen and (max-width:$personal_break) {
+        @media  (max-width:$personal_break) {
             width: 100%;
         }
     }
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    @media screen and (min-width:$personal_break) {
+    @media print{
+        page-break-inside: avoid;
+        position: relative;
+        display: block;
+    }
+    @media  (min-width:$personal_break) {
         flex-wrap: nowrap;
     }
     &__certification{
@@ -183,10 +245,10 @@ BODY{
         SPAN{
             font-size: 1.35rem;
         }
-        @media screen and (min-width:$personal_break) {
+        @media  (min-width:$personal_break) {
             justify-content: flex-start;
         }
-        @media screen and (max-width:$width_ipad) {
+        @media  (max-width:$width_ipad) {
             LI{
                 display: flex;
                 justify-content: center;
@@ -205,12 +267,12 @@ BODY{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        @media screen and (max-width:$personal_break) {
+        @media  (max-width:$personal_break) {
             justify-content: center;
         }
         LI{
             margin: 0.5rem 1rem 0.5rem 0rem;
-            @media screen and (max-width:$width_ipad) {
+            @media  (max-width:$width_ipad) {
                 margin: 0.5rem 1rem;
             }
             font-size: 1.35rem;
@@ -233,6 +295,9 @@ BODY{
         background-size: contain;
         width: 15rem;
         height: 15rem;
+        @media print {
+            display: none;
+        }
     }
     &__details{
         list-style-type: none;
@@ -249,7 +314,7 @@ BODY{
             line-height: normal;
             font-weight: normal;
             font-size: calc(1rem + 0.5vw);
-            @media screen and (min-width:$width_iphone4){
+            @media  (min-width:$width_iphone4){
                 font-size: 1.35rem;
             }
         }
@@ -269,14 +334,14 @@ BODY{
     margin: 0;
     margin-left: 1.5rem;
     padding: 0;
-    @media screen and (min-width:$width_iphone4) {
+    @media  (min-width:$width_iphone4) {
         margin-left: 2rem; 
     }
     
     &__logo{
         max-width: 175px;
         max-height: 65px;
-        @media screen and (min-width:$width_iphone4) {
+        @media  (min-width:$width_iphone4) {
             max-width: 200px;
             max-height: 75px;
         }
@@ -294,14 +359,15 @@ BODY{
         border-left: 3px dotted #ccc;
         padding: 1.5rem;
         position: relative;
-        @media screen and (min-width:$width_iphone4){
+        page-break-inside: avoid;
+        @media  (min-width:$width_iphone4){
             border-left: 5px dotted #ccc;
             padding: 2rem;
         }
     }
     &__year{
         font-size: 1.5rem;
-        @media screen and (min-width:$width_iphone4){
+        @media  (min-width:$width_iphone4){
             font-size: 2rem;
         }
         color: $main_darkgrey;
@@ -318,18 +384,32 @@ BODY{
 
 .desc{
     &__header{
+        page-break-before: always;
         margin-top: 0;
-        margin-bottom: 1rem;
+        padding-bottom: 1rem;
         font-size: 1.5rem;
         font-weight: bold;
+        @media screen {
+            border-bottom: 1px solid $main_darkgrey;
+        }
+        
     }
 }
 
 .card{
     display: flex;
     flex-direction: column;
+    page-break-inside: avoid;
+    P{
+        page-break-inside: avoid;
+    }
+    @media print{        
+        border-top: 1px solid #ccc;
+    }
+    
+    
     H4{
-
+        
     }
     H5{
         font-size: 1rem;
@@ -341,6 +421,9 @@ BODY{
         max-height: 275px;
         background-color: #ccc;
         background-size: cover;
+        @media print {
+            display: none;
+        }
     }
     &__desc{
         flex-grow: 1;
@@ -348,6 +431,7 @@ BODY{
         background-color: #fff;
         overflow: hidden;
         margin-top: 1px;
+        
         &__header{
             margin-top: 0;
             margin-bottom: 1rem;
@@ -384,4 +468,5 @@ BODY{
             margin: 1px;
         }
     }
+    
 }

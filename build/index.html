@@ -10,7 +10,7 @@
     <body>
 
         <div class="wrapper">
-            <div class="component-row">
+            <section aria-label="Introduction" class="component-row">
                 <div class="component-col-12">
                     <header class="header">
                     
@@ -22,12 +22,12 @@
                     
                     </header>
                 </div>
-            </div>
+            </section>
 
         
-            <div class="component-row component-row--late-nowrap">
+            <section aria-label="Personal details" class="component-row component-row--late-nowrap">
                 
-                    <section class="component-col-4 personal ipad50">
+                    <section class="component-col-4 personal ipad50 hide-print">
 
                         <div class="personal__image" 
                             style="background-image:url(img/morten-photo.jpg)" 
@@ -85,8 +85,8 @@
                         </ul>
                     </section>
                     
-            </div>
-            <div class="component-row">
+            </section>
+            <section aria-label="Professional story and experience" class="component-row">
 
                 <section class="component-col-6 desc">
                     <h3 class="desc__header"><a href="https://www.youracclaim.com/badges/aaf5a4f3-dddc-4fca-bdf5-43a245d34848">Certified</a> by Microsoft and more than 10 years of field experience with HTML, CSS and JavaScript</h3>
@@ -165,100 +165,42 @@
                         </li>
                     </ul>
                 </section>
-            </div>
+            </section>
 
-            <div class="component-row">
-
-                    <article class="component-col-6 card">
-                        <div class="card__image" style="background-image:url(img/amid.png)"></div>
-                        <div class="card__desc">
-                            <h4 class="card__desc__header">Arbejdstilsynet / VFA</h4>
-                            <p class="card__desc_period">
-                                <h5 class="card__desc__period__header">Duration:</h5> April 2018 to October 2018
-                            </p>
-                            <p>Frontend development of new Umbraco based CMS solution for a joint venture between two governmental organisations.</p> 
-                            
-                            <h5>The work included:</h5>
-                            <ul>
-                                <li>Frontend architectural design and workflow from ground up</li>
-                                <li>Frontend standalone components that meets the requirements for WCAG 2.0 level AA</li>
-                                <li>Advanced menu technical design and implementation that meets the requirements for WCAG 2.0 level AA</li>
-                                <li>Site search system that meets the requirements for WCAG 2.0 level AA</li>
-                                <li>API driven development for certain parts of the solution</li>
-                            </ul>
-                            
-                        </div>
-    
-                        <ul class="card__tech">
-                            <li class="card__tech__header">Technologies:</li>
-                            <li>Vue.js</li>
-                            <li>ES6</li>
-                            <li>Webpack</li>
-                            <li>SCSS</li>
-                            <li>Umbraco</li>
-                        </ul>
-    
-                    </article>
-
-                <article class="component-col-6 card">
-                    <div class="card__image" style="background-image:url(img/starbm.png)"></div>
-                    <div class="card__desc">
-                        <h4 class="card__desc__header">Beskæftigelsesministeriet</h4>
-                        <p class="card__desc_period">
-                                <h5 class="card__desc__period__header">Duration:</h5> September 2017 to April 2018
-                        </p>
-                        <p>Frontend development of new Umbraco based CMS solution for bm.dk and star.dk</p>
-
-                        <h5>The work included:</h5>
-                        <ul>
-                            <li>Requirements analysis and conversion to agile workflow with client (taking a role as Proxy Product Owner)</li>
-                            <li>Frontend architectural design, workflow and toolchain from ground up</li> 
-                            <li>Frontend standalone components that meets the requirements for WCAG 2.0 level AA</li>
-                            <li>API driven development for certain parts of the solution</li>
-                        </ul>
-                        
+            <section aria-label="Examples of my work">
+                <div class="component-row">
+                    <div class="component-col-12 component-col--nobottompadding">
+                        <h2 class="desc__header">Selected projects as examples of my recent work</h2>
                     </div>
+                </div>
 
-                    <ul class="card__tech">
-                        <li class="card__tech__header">Technologies:</li>
-                        <li>ES6</li>
-                        <li>Grunt</li>
-                        <li>jQuery</li>
-                        <li>SCSS</li>
-                        <li>Umbraco</li>
-                    </ul>
+                <div class="component-row">
 
-                </article>
-
-            </div>
-
-
-            <div class="component-row">
-
-                    <article class="component-col-6 card">
-                            <div class="card__image" style="background-image:url(img/arbejdsmarkedsbalancen.png)"></div>
+                        <article class="component-col-6 card">
+                            <div class="card__image" style="background-image:url(img/amid.png)"></div>
                             <div class="card__desc">
-                                <h4 class="card__desc__header">Styrelsen for Arbejdsmarked og Rekruttering</h4>
+                                <h4 class="card__desc__header">Arbejdstilsynet / VFA</h4>
                                 <p class="card__desc_period">
-                                        <h5 class="card__desc__period__header">Duration:</h5> February 2018 to April 2018
+                                    <h5 class="card__desc__period__header">Duration:</h5> April 2018 to October 2018
                                 </p>
-                                <p>Frontend development on a search engine showing details about general employment and employees vs available jobs over time and geographical locations.</p>
-        
+                                <p>Frontend development of new Umbraco based CMS solution for a joint venture between two governmental organisations.</p> 
+                                
                                 <h5>The work included:</h5>
                                 <ul>
-                                    <li>Requirements analysis and conversion to agile workflow with client (taking a role as Proxy Product Owner)</li>
-                                    <li>Frontend architectural design, workflow and toolchain from ground up</li> 
+                                    <li>Frontend architectural design and workflow from ground up</li>
                                     <li>Frontend standalone components that meets the requirements for WCAG 2.0 level AA</li>
+                                    <li>Advanced menu technical design and implementation that meets the requirements for WCAG 2.0 level AA</li>
+                                    <li>Site search system that meets the requirements for WCAG 2.0 level AA</li>
                                     <li>API driven development for certain parts of the solution</li>
                                 </ul>
                                 
                             </div>
-            
+        
                             <ul class="card__tech">
                                 <li class="card__tech__header">Technologies:</li>
+                                <li>Vue.js</li>
                                 <li>ES6</li>
-                                <li>Grunt</li>
-                                <li>jQuery</li>
+                                <li>Webpack</li>
                                 <li>SCSS</li>
                                 <li>Umbraco</li>
                             </ul>
@@ -266,37 +208,132 @@
                     </article>
     
                     <article class="component-col-6 card">
-                            <div class="card__image" style="background-image:url(img/widgets.png)"></div>
-                            <div class="card__desc">
-                                <h4 class="card__desc__header">Live Sports Widgets</h4>
-                                <p class="card__desc_period">
-                                        <h5 class="card__desc__period__header">Duration:</h5> July 2013 to March 2017
-                                </p>
-                                <p>Frontend development on a number of different widgets showing both statistics and live updating results as events unfolded.</p>
-        
-                                <h5>The work included:</h5>
-                                <ul>
-                                    <li>Prototyping with inhouse designer</li>
-                                    <li>Markup and Styling</li> 
-                                    <li>Programming JavaScript logic and update routines</li>
-                                    <li>API driven development for most of the solution</li>
-                                    <li>Scrum Master and Team lead for a part of the period</li>
-                                </ul>
-                            </div>
-        
-                            <ul class="card__tech">
-                                <li class="card__tech__header">Technologies:</li>
-                                <li>ES6</li>
-                                <li>SCSS</li>
-                                <li>CORS</li>
-                                <li>PHP</li>
+                        <div class="card__image" style="background-image:url(img/starbm.png)"></div>
+                        <div class="card__desc">
+                            <h4 class="card__desc__header">Beskæftigelsesministeriet</h4>
+                            <p class="card__desc_period">
+                                    <h5 class="card__desc__period__header">Duration:</h5> September 2017 to April 2018
+                            </p>
+                            <p>Frontend development of new Umbraco based CMS solution for bm.dk and star.dk</p>
+    
+                            <h5>The work included:</h5>
+                            <ul>
+                                <li>Requirements analysis and conversion to agile workflow with client (taking a role as Proxy Product Owner)</li>
+                                <li>Frontend architectural design, workflow and toolchain from ground up</li> 
+                                <li>Frontend standalone components that meets the requirements for WCAG 2.0 level AA</li>
+                                <li>API driven development for certain parts of the solution</li>
                             </ul>
-        
-                        </article>
+                            
+                        </div>
+    
+                        <ul class="card__tech">
+                            <li class="card__tech__header">Technologies:</li>
+                            <li>ES6</li>
+                            <li>Grunt</li>
+                            <li>jQuery</li>
+                            <li>SCSS</li>
+                            <li>Umbraco</li>
+                        </ul>
+    
+                    </article>
     
                 </div>
+    
+    
+                <div class="component-row">
+    
+                        <article class="component-col-6 card">
+                                <div class="card__image" style="background-image:url(img/arbejdsmarkedsbalancen.png)"></div>
+                                <div class="card__desc">
+                                    <h4 class="card__desc__header">Styrelsen for Arbejdsmarked og Rekruttering</h4>
+                                    <p class="card__desc_period">
+                                            <h5 class="card__desc__period__header">Duration:</h5> February 2018 to April 2018
+                                    </p>
+                                    <p>Frontend development on a search engine showing details about general employment and employees vs available jobs over time and geographical locations.</p>
+            
+                                    <h5>The work included:</h5>
+                                    <ul>
+                                        <li>Requirements analysis and conversion to agile workflow with client (taking a role as Proxy Product Owner)</li>
+                                        <li>Frontend architectural design, workflow and toolchain from ground up</li> 
+                                        <li>Frontend standalone components that meets the requirements for WCAG 2.0 level AA</li>
+                                        <li>API driven development for certain parts of the solution</li>
+                                    </ul>
+                                    
+                                </div>
+                
+                                <ul class="card__tech">
+                                    <li class="card__tech__header">Technologies:</li>
+                                    <li>ES6</li>
+                                    <li>Grunt</li>
+                                    <li>jQuery</li>
+                                    <li>SCSS</li>
+                                    <li>Umbraco</li>
+                                </ul>
+            
+                        </article>
+        
+                        <article class="component-col-6 card">
+                                <div class="card__image" style="background-image:url(img/widgets.png)"></div>
+                                <div class="card__desc">
+                                    <h4 class="card__desc__header">Live Sports Widgets</h4>
+                                    <p class="card__desc_period">
+                                            <h5 class="card__desc__period__header">Duration:</h5> July 2013 to March 2017
+                                    </p>
+                                    <p>Frontend development on a number of different widgets showing both statistics and live updating results as events unfolded.</p>
+            
+                                    <h5>The work included:</h5>
+                                    <ul>
+                                        <li>Prototyping with inhouse designer</li>
+                                        <li>Markup and Styling</li> 
+                                        <li>Programming JavaScript logic and update routines</li>
+                                        <li>API driven development for most of the solution</li>
+                                        <li>Scrum Master and Team lead for a part of the period</li>
+                                    </ul>
+                                </div>
+            
+                                <ul class="card__tech">
+                                    <li class="card__tech__header">Technologies:</li>
+                                    <li>ES6</li>
+                                    <li>SCSS</li>
+                                    <li>CORS</li>
+                                    <li>PHP</li>
+                                </ul>
+            
+                        </article>
+        
+                </div>
+                
+            </section>
+
+            <section aria-label="Private life" class="component-row">
+                <div class="component-col-12">
+                        <h2 class="desc__header">My life</h2>
+                        <p>
+                            I am married to Sarah and together we have a daughter, Aya, born in may 2017. We live in a small town close to family and friends. 
+                            While my time for it is limited nowadays, I have always been an avid gamer enjoying mostly RTS and space games. Other interests include family, friends, astronomy and piano playing.
+                        </p>
+
+                        <p><strong>Date of birth:</strong> 20th of November 1978</p>
+                </div>
+            </section>
+
+            <footer class="component-row">
+                <div class="component-col-12">
+                    <h2 class="desc__header">Contact information</h2>
+                    <address>
+                        <ul>
+                            <li>Morten Kozak Fischer</li>
+                            <li>Elmevej 16</li>
+                            <li>4171 Glumsø</li>
+                            <li>Tlf +45 2615 4282</li>
+                            <li>morten@grafisch.dk</li>
+                        </ul>
+                    </address>
+                </div>
+            </footer>
 
         </div>
+
 
         <!--script src="app.js"></script-->
     </body>
