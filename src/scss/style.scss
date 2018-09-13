@@ -328,6 +328,13 @@ BODY{
 .card{
     display: flex;
     flex-direction: column;
+    H4{
+
+    }
+    H5{
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
     &__image{
         width: 100%;
         padding-top: 56.25%;
@@ -346,6 +353,11 @@ BODY{
             margin-bottom: 1rem;
             font-size: 1.5rem;
             font-weight: bold;
+        }
+        &__period{
+            &__header{
+                display: inline;
+            }
         }
     }
     &__tech{
