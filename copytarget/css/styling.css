@@ -338,6 +338,12 @@ template {
 .icon-linkedin2:before {
   content: "\EACA"; }
 
+@page {
+  size: A4;
+  margin-left: 15mm;
+  margin-right: 15mm;
+  margin: 15mm; }
+
 BODY {
   box-sizing: border-box;
   background-color: #ececec;
@@ -354,6 +360,8 @@ BODY {
       font-size: 13px; } }
   BODY P {
     line-height: 1.35em; }
+    BODY P:last-of-type {
+      margin-bottom: 0; }
   BODY .bold {
     font-weight: bold; }
   BODY A {
@@ -386,6 +394,8 @@ BODY {
       display: flex; }
     BODY ADDRESS LI:not(:first-of-type)::before {
       content: ", "; } }
+  BODY FOOTER {
+    margin-bottom: 5rem; }
   @media print {
     BODY .hide-print {
       display: none; } }
@@ -640,6 +650,8 @@ BODY {
   @media screen {
     .desc__header {
       border-bottom: 1px solid #cccccc; } }
+  .desc__header--no-page-break {
+    page-break-before: avoid !important; }
 
 .card {
   display: flex;
@@ -649,18 +661,23 @@ BODY {
     page-break-inside: avoid; }
   @media print {
     .card {
-      border-top: 1px solid #ccc; } }
+      border: 1px solid #ccc;
+      margin-bottom: 5mm; } }
   .card H5 {
     font-size: 1rem;
     margin: 1rem 0; }
-  .card__image {
-    width: 100%;
-    padding-top: 56.25%;
-    max-height: 275px;
-    background-color: #ccc;
-    background-size: cover; }
-    @media print {
-      .card__image {
+  @media print {
+    .card__image IMG.print-only {
+      max-width: 50%;
+      display: none; } }
+  @media screen {
+    .card__image {
+      width: 100%;
+      padding-top: 56.25%;
+      max-height: 275px;
+      background-color: #ccc;
+      background-size: cover; }
+      .card__image IMG {
         display: none; } }
   .card__desc {
     flex-grow: 1;
