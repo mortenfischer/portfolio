@@ -1,0 +1,483 @@
+@import "./modules/_normalize";
+@import "./modules/_variables";
+
+@mixin pagerootstyles {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@page{
+    size: A4;
+    margin-left: 15mm;
+    margin-right: 15mm;
+    margin: 15mm;
+}
+
+BODY{
+    box-sizing: border-box;
+    background-color: $main_backgroundcolor;
+    color: $main_textcolor;
+    font-family: "Raleway","Helvetica",sans-serif;
+    font-size: 16px;
+    @media print{
+        font-size: 13px;
+    }
+    @include pagerootstyles();
+    width: auto;
+
+    P{
+        line-height: 1.35em;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+    }
+    .bold{
+        font-weight: bold;
+    }
+    A{
+        color: $main_altcolor;
+        text-decoration: none;
+        border-bottom: 1px dotted #ccc;
+        transition: border-bottom-color 0.25s ease-out,border-bottom-style 0.25s ease-out;
+        &:hover,
+        &:focus{
+            border-bottom-color: $main_altcolor;
+            //border-bottom-width: 2px;
+            border-bottom-style: solid;
+        }
+    }
+    PRE{
+        white-space: pre-line;
+        font-family: inherit;
+        font-size: calc(1rem + 0.5vw);
+        line-height: normal;
+        @media  (min-width:$width_iphone4){
+            font-size: 1.35rem;
+        }
+        @media print{
+            font-size: 1rem;
+        }
+        
+    }
+    ADDRESS{
+        UL{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        LI:first-of-type{
+            font-weight: bold;
+        }
+        
+    }
+    FOOTER{
+        margin-bottom: 5rem;
+    }
+    .hide-print{
+        @media print{
+            display: none;
+        }
+    }
+    *{
+        position: relative;
+    }
+}
+
+.component-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    @media print{
+        display:block;
+    }
+    & > * {
+        @media print{
+            padding: 0;
+        }
+    }
+    &--late-nowrap{
+        flex-wrap: wrap;
+        @media  (min-width:$personal_break){
+            flex-wrap: nowrap;
+               
+        }
+    }
+    .component-col-forcewrap{
+        flex-wrap: wrap;
+    }
+    .component-col-smallborders{
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        @media  (min-width:$width_iphone4){
+            border: 1px solid #ccc;        
+        }
+        @media  (min-width:$width_ipad){
+            border: none;        
+        }
+    }
+    @media  (min-width:$width_ipad){
+        flex-wrap: nowrap;
+           
+    }
+    
+    .component-col-12{
+        width: 100%;
+        padding: $main_gutter/2;
+    }
+    .component-col-6{
+        width: 100%;
+        @media  (min-width:$width_ipad){
+            width: 50%; 
+        }
+        padding: $main_gutter/2;
+        //outline: 1px dotted black;
+    }
+    .component-col-4{
+        width: 100%;
+        @media  (min-width:$width_ipad){
+            width: 33.333%; 
+        }
+        padding: $main_gutter/2;
+        //outline: 1px dotted black;
+    }
+    .component-col--nobottompadding{
+        padding-bottom: 0;
+    }
+}
+
+.wrapper{
+    max-width: 1200px;
+    
+    @media  (min-width: $width_iphone4) {
+        padding: 0 calc(0.5em + 2vw);
+    }
+    width: 100%;
+    @media print{
+        max-width: none;
+        padding: 0;
+    }
+}
+
+.header{
+    padding: 0;
+    padding-top: 1rem;
+    &__main{
+        font-size: calc(2rem + 1vw);
+        @media  (min-width:$width_iphone4) {
+            font-size: calc(2rem + 3vw);
+        }
+        @media  (min-width:$width_ipad) {
+            font-size: 4rem;
+        }
+        P{
+            margin: 0;
+        }
+    }
+    &__teaser{
+        font-size: calc(1rem + 0.5vw);
+        @media  (min-width:$width_iphone4) {
+            font-size: calc(1rem + 2vw);
+        }
+        @media  (min-width:$width_ipad) {
+            font-size: 2rem;
+        }
+    }
+}
+
+.personal{
+    &.borders{
+        @media  (min-width:$personal_break){
+            //border-left: 1px solid #ccc;
+            //border-right: 1px solid #ccc;
+        }
+    }
+    &.ipad50{
+        @media  (min-width:$width_ipad) {
+            width: 33%;
+            flex-shrink: 0;
+        }
+        @media  (min-width:550px) and (max-width:$personal_break) {
+            width: 50%;
+            flex-shrink: 0;
+        }
+    }
+    &.ipad100{
+        @media  (max-width:$personal_break) {
+            width: 100%;
+        }
+    }
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media print{
+        page-break-inside: avoid;
+        position: relative;
+        display: block;
+    }
+    @media  (min-width:$personal_break) {
+        flex-wrap: nowrap;
+    }
+    &__certification{
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        LI{
+            margin: 0.5rem 1rem 0.5rem 0rem;
+        }
+        LI{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        IMG{
+            width: 1.75rem;
+            margin-right: 0.5rem;
+        }
+        SPAN{
+            font-size: 1.35rem;
+        }
+        @media  (min-width:$personal_break) {
+            justify-content: flex-start;
+        }
+        @media  (max-width:$width_ipad) {
+            LI{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                SPAN{
+                    width: 100%;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+    &__skills{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        @media  (max-width:$personal_break) {
+            justify-content: center;
+        }
+        LI{
+            margin: 0.5rem 1rem 0.5rem 0rem;
+            @media  (max-width:$width_ipad) {
+                margin: 0.5rem 1rem;
+            }
+            font-size: 1.35rem;
+            &::before{
+                font-family: "mkf";
+                content: "\ea10";
+                font-size: 0.75rem;
+                width: 10px;
+                height: 10px;
+                padding: 8px;
+                border-radius: 50%;
+                background-color: #ccc;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    &__image{
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-size: contain;
+        width: 15rem;
+        height: 15rem;
+        @media print {
+            display: none;
+        }
+    }
+    &__details{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        &__name{
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        &__title P{
+            margin: 0;
+            line-height: normal;
+            font-weight: normal;
+            font-size: calc(1rem + 0.5vw);
+            @media  (min-width:$width_iphone4){
+                font-size: 1.35rem;
+            }
+        }
+        &__icon{
+            background-color: $main_altcolor;
+            color: $main_backgroundcolor;
+            padding: 0.5rem;
+            border-radius: 50%;
+            margin: 0 0.5rem 0.5rem 0;
+            display: inline-block;
+        }
+    }
+}
+
+.experience{
+    list-style-type: none;
+    margin: 0;
+    margin-left: 1.5rem;
+    padding: 0;
+    @media  (min-width:$width_iphone4) {
+        margin-left: 2rem; 
+    }
+    
+    &__logo{
+        max-width: 175px;
+        max-height: 65px;
+        @media  (min-width:$width_iphone4) {
+            max-width: 200px;
+            max-height: 75px;
+        }
+    }
+    &__header{
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    &__employer{
+        display: block;
+        margin-top: $main_gutter/8;
+        margin-bottom: $main_gutter/8;
+    }
+    &__desc{
+        border-left: 3px dotted #ccc;
+        padding: 1.5rem;
+        position: relative;
+        page-break-inside: avoid;
+        @media  (min-width:$width_iphone4){
+            border-left: 5px dotted #ccc;
+            padding: 2rem;
+        }
+    }
+    &__year{
+        font-size: 1.5rem;
+        @media  (min-width:$width_iphone4){
+            font-size: 2rem;
+        }
+        color: $main_darkgrey;
+        top: 0;
+        position: absolute;
+        left: -2rem;
+        background-color: #eee;
+    }
+    &__text{
+        margin-top: 2rem;
+        display: block;
+    }
+}
+
+.desc{
+    &__header{
+        page-break-before: always;
+        margin-top: 0;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        @media screen {
+            border-bottom: 1px solid $main_darkgrey;
+        }
+        &--no-page-break{
+            page-break-before: avoid !important;
+        }
+        
+    }
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    page-break-inside: avoid;
+    P{
+        page-break-inside: avoid;
+    }
+    @media print{        
+        border: 1px solid #ccc;
+        margin-bottom: 5mm;
+    }
+    
+    
+    H4{
+        
+    }
+    H5{
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+    &__image{
+        @media print {
+            IMG.print-only {
+                max-width: 50%;
+                // disabled
+                display: none;
+            }
+        }
+        @media screen {
+            width: 100%;
+            padding-top: 56.25%;
+            max-height: 275px;
+            background-color: #ccc;
+            background-size: cover;
+            IMG{
+                display: none;
+            }
+        }
+    }
+    &__desc{
+        flex-grow: 1;
+        padding: $main_gutter/2;
+        background-color: #fff;
+        overflow: hidden;
+        margin-top: 1px;
+        
+        &__header{
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        &__period{
+            &__header{
+                display: inline;
+            }
+        }
+    }
+    &__tech{
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.75rem;
+        padding: $main_gutter/4 $main_gutter/2;
+        background-color: #fff;
+        margin: 1px 0 0 0;
+        LI:not(.card__tech__header){
+            background-color: transparent;
+            border:1px solid #ccc;
+            color: #666;
+            padding: 4px 8px 3px;
+            border-radius: 12px;
+            //font-weight: bold;
+            margin: 1px;
+        }
+        &__header{
+            font-weight: bold;
+            padding: 4px 8px 3px 0;
+            margin: 1px;
+        }
+    }
+    
+}

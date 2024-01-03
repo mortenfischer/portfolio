@@ -1,483 +1,402 @@
 @import "./modules/_normalize";
 @import "./modules/_variables";
 
-@mixin pagerootstyles {
-    width: 100%;
+:root {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+
+    A {
+        color: #000000;
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+
+// section styles
+
+.mkf-section{
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+    flex-direction: column;
 
-@page{
-    size: A4;
-    margin-left: 15mm;
-    margin-right: 15mm;
-    margin: 15mm;
-}
+    @media screen and (min-width: $desktop){
+        flex-direction: unset;
 
-BODY{
-    box-sizing: border-box;
-    background-color: $main_backgroundcolor;
-    color: $main_textcolor;
-    font-family: "Raleway","Helvetica",sans-serif;
-    font-size: 16px;
-    @media print{
-        font-size: 13px;
-    }
-    @include pagerootstyles();
-    width: auto;
-
-    P{
-        line-height: 1.35em;
-        &:last-of-type{
-            margin-bottom: 0;
-        }
-    }
-    .bold{
-        font-weight: bold;
-    }
-    A{
-        color: $main_altcolor;
-        text-decoration: none;
-        border-bottom: 1px dotted #ccc;
-        transition: border-bottom-color 0.25s ease-out,border-bottom-style 0.25s ease-out;
-        &:hover,
-        &:focus{
-            border-bottom-color: $main_altcolor;
-            //border-bottom-width: 2px;
-            border-bottom-style: solid;
-        }
-    }
-    PRE{
-        white-space: pre-line;
-        font-family: inherit;
-        font-size: calc(1rem + 0.5vw);
-        line-height: normal;
-        @media  (min-width:$width_iphone4){
-            font-size: 1.35rem;
-        }
-        @media print{
-            font-size: 1rem;
-        }
+        &:not(.mkf-header){
+            &:nth-child(even){
+                & .mkf-section-header{
+                    background-color: var(--section-header-desktop-bg-even);
+                }
+                & .mkf-section-content{
+                    background-color: var(--section-content-desktop-bg-even);
+                }
+            }
         
-    }
-    ADDRESS{
-        UL{
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        LI:first-of-type{
-            font-weight: bold;
-        }
-        
-    }
-    FOOTER{
-        margin-bottom: 5rem;
-    }
-    .hide-print{
-        @media print{
-            display: none;
-        }
-    }
-    *{
-        position: relative;
-    }
-}
-
-.component-row{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    position: relative;
-    @media print{
-        display:block;
-    }
-    & > * {
-        @media print{
-            padding: 0;
-        }
-    }
-    &--late-nowrap{
-        flex-wrap: wrap;
-        @media  (min-width:$personal_break){
-            flex-wrap: nowrap;
-               
-        }
-    }
-    .component-col-forcewrap{
-        flex-wrap: wrap;
-    }
-    .component-col-smallborders{
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        @media  (min-width:$width_iphone4){
-            border: 1px solid #ccc;        
-        }
-        @media  (min-width:$width_ipad){
-            border: none;        
-        }
-    }
-    @media  (min-width:$width_ipad){
-        flex-wrap: nowrap;
-           
-    }
-    
-    .component-col-12{
-        width: 100%;
-        padding: $main_gutter/2;
-    }
-    .component-col-6{
-        width: 100%;
-        @media  (min-width:$width_ipad){
-            width: 50%; 
-        }
-        padding: $main_gutter/2;
-        //outline: 1px dotted black;
-    }
-    .component-col-4{
-        width: 100%;
-        @media  (min-width:$width_ipad){
-            width: 33.333%; 
-        }
-        padding: $main_gutter/2;
-        //outline: 1px dotted black;
-    }
-    .component-col--nobottompadding{
-        padding-bottom: 0;
-    }
-}
-
-.wrapper{
-    max-width: 1200px;
-    
-    @media  (min-width: $width_iphone4) {
-        padding: 0 calc(0.5em + 2vw);
-    }
-    width: 100%;
-    @media print{
-        max-width: none;
-        padding: 0;
-    }
-}
-
-.header{
-    padding: 0;
-    padding-top: 1rem;
-    &__main{
-        font-size: calc(2rem + 1vw);
-        @media  (min-width:$width_iphone4) {
-            font-size: calc(2rem + 3vw);
-        }
-        @media  (min-width:$width_ipad) {
-            font-size: 4rem;
-        }
-        P{
-            margin: 0;
-        }
-    }
-    &__teaser{
-        font-size: calc(1rem + 0.5vw);
-        @media  (min-width:$width_iphone4) {
-            font-size: calc(1rem + 2vw);
-        }
-        @media  (min-width:$width_ipad) {
-            font-size: 2rem;
-        }
-    }
-}
-
-.personal{
-    &.borders{
-        @media  (min-width:$personal_break){
-            //border-left: 1px solid #ccc;
-            //border-right: 1px solid #ccc;
-        }
-    }
-    &.ipad50{
-        @media  (min-width:$width_ipad) {
-            width: 33%;
-            flex-shrink: 0;
-        }
-        @media  (min-width:550px) and (max-width:$personal_break) {
-            width: 50%;
-            flex-shrink: 0;
-        }
-    }
-    &.ipad100{
-        @media  (max-width:$personal_break) {
-            width: 100%;
-        }
-    }
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    @media print{
-        page-break-inside: avoid;
-        position: relative;
-        display: block;
-    }
-    @media  (min-width:$personal_break) {
-        flex-wrap: nowrap;
-    }
-    &__certification{
-        width: 100%;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        LI{
-            margin: 0.5rem 1rem 0.5rem 0rem;
-        }
-        LI{
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        IMG{
-            width: 1.75rem;
-            margin-right: 0.5rem;
-        }
-        SPAN{
-            font-size: 1.35rem;
-        }
-        @media  (min-width:$personal_break) {
-            justify-content: flex-start;
-        }
-        @media  (max-width:$width_ipad) {
-            LI{
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                SPAN{
-                    width: 100%;
-                    white-space: nowrap;
+            &:nth-child(odd){
+                & .mkf-section-header{
+                    background-color: var(--section-header-desktop-bg-odd);
+                }
+                & .mkf-section-content{
+                    background-color: var(--section-content-desktop-bg-odd);
                 }
             }
         }
     }
-    &__skills{
+
+    
+    
+}
+
+.mkf-section-header{
+    padding: 4rem 4rem 0;
+    & * {
+        font-size: 1.25em;
+        line-height: normal;
         margin: 0;
-        padding: 0;
-        list-style-type: none;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        @media  (max-width:$personal_break) {
-            justify-content: center;
-        }
-        LI{
-            margin: 0.5rem 1rem 0.5rem 0rem;
-            @media  (max-width:$width_ipad) {
-                margin: 0.5rem 1rem;
-            }
-            font-size: 1.35rem;
-            &::before{
-                font-family: "mkf";
-                content: "\ea10";
-                font-size: 0.75rem;
-                width: 10px;
-                height: 10px;
-                padding: 8px;
-                border-radius: 50%;
-                background-color: #ccc;
-                margin-right: 0.5rem;
-            }
-        }
     }
-    &__image{
-        flex-shrink: 0;
-        border-radius: 50%;
-        background-size: contain;
-        width: 15rem;
-        height: 15rem;
-        @media print {
-            display: none;
-        }
-    }
-    &__details{
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        &__name{
-            margin-top: 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        &__title P{
-            margin: 0;
-            line-height: normal;
-            font-weight: normal;
-            font-size: calc(1rem + 0.5vw);
-            @media  (min-width:$width_iphone4){
-                font-size: 1.35rem;
-            }
-        }
-        &__icon{
-            background-color: $main_altcolor;
-            color: $main_backgroundcolor;
-            padding: 0.5rem;
-            border-radius: 50%;
-            margin: 0 0.5rem 0.5rem 0;
-            display: inline-block;
+    @media screen and (min-width: $desktop) {
+        padding: 4rem;
+        min-width: 40%;
+        text-align: right;
+
+        & * {
+            font-size: 1.6rem;
         }
     }
 }
 
-.experience{
+.mkf-section-content{
+    flex-basis: 100%;
+    padding: 2rem 4rem 4rem; 
+    @media screen and (min-width: $desktop) {
+        
+    }
+
+    &--text{
+        P {
+            margin: 0;
+            max-width: $content-desktop-width;
+            & + p {
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+
+.mkf-header{
+    padding-top: 5rem;
+    @media screen and (min-width:$desktop){
+        & > * {
+            padding-top: 15rem;
+        }
+    }
+}
+
+// Elements
+
+.mkf-avatar{
+    display: block;
+    width: 25rem;
+    height: 25rem;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    @media screen and (min-width:$desktop){
+        width: 35rem;
+        height: 35rem;
+        margin: 0 0 0 auto;
+    }
+    
+}
+
+.mkf-title{
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 900;
+
+    P {
+        margin: 2rem 0;
+    }
+
+    &--caps{
+        text-transform: uppercase;
+        font-size: 5rem;
+
+        @media screen and (min-width:$desktop){
+            font-size: 6rem;
+        }
+    }
+
+    &--plain{
+        font-weight: 300;
+    }
+
+    &--cursive{
+        //font-family: 'Dancing Script', cursive;
+        position: relative;
+        left: -1rem;
+        color: #ffffff;
+        background-color: #333;
+        font-size: 3rem;
+        margin-top: 2rem;
+        display: inline-block;
+        padding: 0.5rem 3.5rem 0.7rem;
+        border-radius: 3rem;
+        line-height: normal;
+    }
+
+    &--small{
+        font-size: 2rem;
+    }
+
+    &--large{
+        font-size: 4rem;
+
+        @media screen and (min-width:$desktop){
+            font-size: 6rem;
+        }
+    }
+
+    *:last-child{
+        @media screen and (min-width:$desktop){
+            border-bottom: 1px solid black;
+            padding-bottom: 5rem;
+        }
+    }
+}
+
+.mkf-details{
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 6rem;
+    max-width: $content-desktop-width;
+    margin-top: 5rem;
+
+    &__type{
+        font-weight: 700;
+    }
+
+    &__description{
+        min-height: 3rem;
+        margin: 0;
+
+        P + P { 
+            margin: 0;
+        }
+
+        A {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width:$desktop){
+        display: block;
+        max-height: unset;
+    }
+}
+
+.mkf-section-title{
+    font-weight: 300;
+    line-height: 2.5rem;
+    &--emphasized{
+        font-weight: 700;
+    }
+}
+
+// experience listing
+
+.mkf-experience-list{
     list-style-type: none;
     margin: 0;
-    margin-left: 1.5rem;
-    padding: 0;
-    @media  (min-width:$width_iphone4) {
-        margin-left: 2rem; 
-    }
-    
-    &__logo{
-        max-width: 175px;
-        max-height: 65px;
-        @media  (min-width:$width_iphone4) {
-            max-width: 200px;
-            max-height: 75px;
-        }
-    }
-    &__header{
-        font-size: 1.25rem;
-        margin-bottom: 0;
-    }
-    &__employer{
-        display: block;
-        margin-top: $main_gutter/8;
-        margin-bottom: $main_gutter/8;
-    }
-    &__desc{
-        border-left: 3px dotted #ccc;
-        padding: 1.5rem;
-        position: relative;
-        page-break-inside: avoid;
-        @media  (min-width:$width_iphone4){
-            border-left: 5px dotted #ccc;
-            padding: 2rem;
-        }
-    }
-    &__year{
-        font-size: 1.5rem;
-        @media  (min-width:$width_iphone4){
-            font-size: 2rem;
-        }
-        color: $main_darkgrey;
-        top: 0;
-        position: absolute;
-        left: -2rem;
-        background-color: #eee;
-    }
-    &__text{
-        margin-top: 2rem;
-        display: block;
-    }
-}
-
-.desc{
-    &__header{
-        page-break-before: always;
-        margin-top: 0;
-        padding-bottom: 1rem;
-        font-size: 1.5rem;
-        font-weight: bold;
-        @media screen {
-            border-bottom: 1px solid $main_darkgrey;
-        }
-        &--no-page-break{
-            page-break-before: avoid !important;
-        }
-        
-    }
-}
-
-.card{
+    padding: 1rem;
+    position: relative;
     display: flex;
     flex-direction: column;
-    page-break-inside: avoid;
-    P{
-        page-break-inside: avoid;
-    }
-    @media print{        
-        border: 1px solid #ccc;
-        margin-bottom: 5mm;
-    }
-    
-    
-    H4{
-        
-    }
-    H5{
-        font-size: 1rem;
-        margin: 1rem 0;
-    }
-    &__image{
-        @media print {
-            IMG.print-only {
-                max-width: 50%;
-                // disabled
-                display: none;
-            }
-        }
-        @media screen {
-            width: 100%;
-            padding-top: 56.25%;
-            max-height: 275px;
-            background-color: #ccc;
-            background-size: cover;
-            IMG{
-                display: none;
-            }
-        }
-    }
-    &__desc{
-        flex-grow: 1;
-        padding: $main_gutter/2;
-        background-color: #fff;
-        overflow: hidden;
-        margin-top: 1px;
-        
-        &__header{
-            margin-top: 0;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        &__period{
-            &__header{
-                display: inline;
-            }
-        }
-    }
-    &__tech{
-        list-style-type: none;
+    gap: 2rem;
+
+    @media screen and (min-width:$desktop){
         padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 0.75rem;
-        padding: $main_gutter/4 $main_gutter/2;
-        background-color: #fff;
-        margin: 1px 0 0 0;
-        LI:not(.card__tech__header){
-            background-color: transparent;
-            border:1px solid #ccc;
-            color: #666;
-            padding: 4px 8px 3px;
-            border-radius: 12px;
-            //font-weight: bold;
-            margin: 1px;
-        }
-        &__header{
-            font-weight: bold;
-            padding: 4px 8px 3px 0;
-            margin: 1px;
+    }
+}
+
+.mkf-experience{
+    display: flex;
+    flex-direction: column;
+    max-width: $content-desktop-width;
+    position: relative;
+    border-left: 1px solid black;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+
+    @media screen and (min-width:$desktop){
+        flex-direction: unset;
+    }
+
+    &__overview * {
+        margin: 0.5rem;
+        min-width: 28rem;
+        padding-left: 2.5rem;
+
+        &::before{
+            content: "";
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            background-color: #cccccc;
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+            top: -15px;
         }
     }
+
+    &__period{
+        color: var(--experience-period);
+        margin: 0;
+    }
+
+    &__company{
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 700;
+        margin: 2rem 0 0.5rem;
+    }
+
+    &__location{
+        margin: 0;
+        margin-bottom: 2rem;
+        font-size: 0.80em;
+    }
+
+    &__role{
+        margin: 0;
+        font-size: 0.80em;
+    }
+
+    &__summary{
+        padding-left: 2.5rem;
+        margin-top: 2rem;
+
+        @media screen and (min-width:$desktop){
+            padding-left: 0;
+            margin-top: unset;
+        }
+
+        P {
+            margin-top: 0;
+        }
+        
+    }
+
+    &__responsibility-list{
+        font-size: 0.80em;
+    }
+}
+
+.mkf-definition-list{
+    margin: 0;
+
+    dt {
+        font-weight: 400;
+    }
+    dd {
+        margin: 0 0 2rem 0;
+    }
+}
+
+@media print {
     
+    @page{
+        size: a4 portrait;
+        margin: 1cm;
+    }
+
+    body, body *{
+        color: #000000 !important;
+    }
+
+    .mkf-avatar{
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .mkf-title p {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .mkf-title *:last-child{
+        border-bottom: none;
+        padding-bottom: 2rem;
+    }
+
+    .mkf-title--cursive{
+        left: 0;
+        top: 2rem;
+        display: block;
+        background-color: transparent;
+        border: 1px solid #000000;
+        font-weight: 700;
+        padding: 0.25rem 2.5rem 0.5rem;
+        margin: 2rem;
+    }
+
+    .mkf-details__type{
+        text-align: center;
+    }
+    .mkf-details__description{
+        text-align: center;
+    }
+
+    .mkf-page-break {
+        break-before: page;
+    }
+
+    .mkf-experience{
+        flex-direction: column;
+
+        &__overview{
+            margin-bottom: 2rem;
+        }
+
+        &__summary{
+            padding-left: 4rem;
+        }
+
+        &__overview * {    
+            &::before{
+                content: "";
+                display: none;
+            }
+        }
+
+        &__period{
+            
+        }
+
+        &__role {
+            font-weight: 400;
+        }
+    }
+
+    .mkf-section-header{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .mkf-section-title--emphasized{
+        font-size: 2.5rem;
+        margin-bottom: 0rem;
+        margin-top: 0rem;
+    }
+
+    .mkf-section-title--normal{
+        display: none;
+    }
 }
