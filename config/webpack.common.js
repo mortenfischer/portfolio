@@ -10,8 +10,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
     entry: {
-        app: './src/js/index.js',
-        polyfill: 'babel-polyfill',
+        //app: './src/js/index.js',
         styling: './src/scss/style.scss'
     },
     output: {

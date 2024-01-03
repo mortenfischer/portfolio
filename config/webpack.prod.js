@@ -5,17 +5,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin'); // https://github.com/
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-    mode: "production",
+    mode: "development",
     devtool: "source-map",
     plugins: [
-        new UglifyJSPlugin({
+        /* new UglifyJSPlugin({
             sourceMap: true
-        }),
-        new CopyWebpackPlugin([
-            { from: './build/*.js', to: '../copytarget/js/', flatten: true },
-            { from: './build/*.js.map', to: '../copytarget/js/', flatten: true },
-            { from: './build/*.css', to: '../copytarget/css/', flatten: true },
-            { from: './build/*.css.map', to: '../copytarget/css/', flatten: true }
-        ]/* options omitted */)
+        }) */
     ]
 });
