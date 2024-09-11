@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Morten Fischer</title>
+    <script src="https://unpkg.com/axe-core@4.0.2/dist/axe.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="styling.css?v2">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
         <h1 class="mkf-title">
             <p class="mkf-title--plain mkf-title--large">Morten Kozak</p>
             <p class="mkf-title--caps">Fischer</p>
-            <p class="mkf-title--plain mkf-title--small mkf-title--cursive">Managing specialist with decades of experience</p>
+            <p class="mkf-title--plain mkf-title--small mkf-title--cursive">Managing web-specialist with decades of experience</p>
             <p class="mkf-title--plain mkf-title--small"></p>
         </h1>
         <dl class="mkf-details">
@@ -66,7 +67,7 @@
         </header>
         <div class="mkf-section-content mkf-section-content--text">
             <p>
-                Throughout my career, I have consistently demonstrated a well-documented track record of leading developers and external partners effectively to deliver high-quality UI solutions that prioritize experience, accessibility and maintainability.
+                Throughout my career, I have consistently demonstrated a well-documented track record of leading developers, designers and external partners effectively to deliver high-quality UI solutions that prioritize experience, accessibility and maintainability.
             </p>
             <p>
                 I set a positive example by demonstrating strong integrity. My approach to leadership is highly empathic and involves motivating the team through respectful interactions, while also granting them the autonomy and accountability necessary for optimal performance within collaborative environments.
@@ -83,7 +84,7 @@
         </header>
         <div class="mkf-section-content mkf-section-content--text">
             <p>
-                My driving ambition centers around empowering users through meticulously crafted solutions that align with the design aspirations and strategic goals of the organization. Leveraging my expertise in not only major JavaScript frameworks, but also accessibility and UX, I consistently make informed decisions to ensure our solutions meet and exceed business requirements.
+                My driving ambition centers around empowering users through meticulously crafted solutions that align with the design aspirations and strategic goals of the organization. Leveraging my expertise and experience in not only tech, but also accessibility and UX, I consistently seek to make as informed decisions as possible to ensure a solution meet and exceed business requirements.
             </p>
         </div>
     </section>
@@ -330,7 +331,21 @@
     </section>
 
   </main>
+  <script>
+    async function runAccessibilityTests() {
+      const results = await axe.run();
+      handleResults(results);
+    }
 
+    function handleResults(results) {
+      if (results.violations.length === 0) {
+        console.log('Webstedet overholder WCAG 2.1 AA');
+      } else {
+        console.error('Webstedet overholder ikke WCAG 2.1 AA. Se detaljer:');
+        console.table(results.violations);
+      }
+    }
+  </script>
 
 </body>
 

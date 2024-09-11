@@ -415,6 +415,11 @@ body {
   flex-basis: 100%;
   padding: 2rem 4rem 4rem;
 }
+@media screen and (min-width: 1000px) {
+  .mkf-section-content {
+    padding: 4rem;
+  }
+}
 .mkf-section-content--text P {
   margin: 0;
   max-width: 800px;
